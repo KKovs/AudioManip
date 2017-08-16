@@ -41,7 +41,13 @@ public class Duration {
 		sec = sec - mins * 60;
 		sbuff.append(':');
 		
-		sbuff.append(sec);
+		if (sec > 9) {
+			sbuff.append(sec);
+		} else {
+			sbuff.append(0);
+			sbuff.append(sec);
+		}
+
 		hhmmss = sbuff.toString();
 		
 		return hhmmss;
