@@ -8,17 +8,18 @@ public class Main {
 		if (args.length == 0) {
 			new GUI_Frame();
 		} else {
-			//by default SPLI MODE is engaged as follows:
+			//by default SPLIT MODE is engaged as follows:
 			//arg1: file path
 			//arg2: 'from' in HH:MM:SS
 			//arg3: 'to' in HH:MM:SS
 			if ( ! args[0].equals("-join")) {
-				
+
 				new WAVFile(new File(args[0])).cutFromTo(Duration.HHMMSS_to_sec(args[1]), Duration.HHMMSS_to_sec(args[2]));
-				
+				System.out.println("AudioManip- splitting succesful");
 				//JOIN MODE where files are joined via their order of passing them as next args
-			} else {
 				//result file will have properties of first passed file
+			} else {
+
 				WAVFile[] WAVfiles = new WAVFile[args.length - 1];
 				
 				for (int i = 0; i < WAVfiles.length; i++) {
@@ -26,6 +27,7 @@ public class Main {
 				}
 				
 				WAVFile.join(WAVfiles);
+				System.out.println("AudioManip- joining succesful");
 			}
 		}
 
