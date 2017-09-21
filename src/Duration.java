@@ -3,6 +3,7 @@ public class Duration {
 	
 	static final String ZERO_TIME = "00:00:00";
 	
+	/* Input: hhmmss- hhmmss in string || Output: returns hhmmss in seconds */
 	static int HHMMSS_to_sec(String hhmmss) {
 
 		int sec = 0;
@@ -16,6 +17,7 @@ public class Duration {
 		return sec;
 	}
 	
+	/* Input: hhmmss- hhmmss in seconds || Output: returns hhmmss in string */
 	static String sec_to_HHMMSS(int sec) {
 		
 		String hhmmss;

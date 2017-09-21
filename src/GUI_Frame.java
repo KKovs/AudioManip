@@ -1,15 +1,28 @@
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileFilter;
 
-@SuppressWarnings("serial")
+import java.io.File;
+
+
 public class GUI_Frame extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JLabel targetdisplay = new JLabel();
 	private JButton choosebutton = new JButton();
 	private JPanel north_cont = new JPanel();
@@ -47,7 +60,9 @@ public class GUI_Frame extends JFrame {
 			to_field.setText(null);
 		}
 	};
-
+	
+	//constructor and methods
+	
 	public GUI_Frame() {
 		SwingUtilities.invokeLater(() -> createGUI());
 	}
@@ -63,7 +78,7 @@ public class GUI_Frame extends JFrame {
 		setResizable(true);
 		setPreferredSize(framedim);
 
-		// initial setup
+		// layout setup
 		north_cont.setLayout(new GridLayout(2, 1));
 		north_cont.add(targetdisplay);
 		targetdisplay.setHorizontalAlignment(JLabel.CENTER);
@@ -81,6 +96,7 @@ public class GUI_Frame extends JFrame {
 		setVisible(true);
 	}
 
+	//setup choose button properties
 	private void setupChButton() {
 		choosebutton.setText("Choose WAV to cut");
 
@@ -103,6 +119,7 @@ public class GUI_Frame extends JFrame {
 		});
 	}
 
+	//setup text fields properties
 	private void setupTextFields() {
 		from_field.setText(Duration.ZERO_TIME);
 		to_field.setText(Duration.sec_to_HHMMSS(curr_wavfile.getAudioLength()));
