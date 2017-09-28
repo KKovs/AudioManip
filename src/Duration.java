@@ -4,7 +4,7 @@ public class Duration {
 	static final String ZERO_TIME = "00:00:00";
 	
 	/* Input: hhmmss- hhmmss in string || Output: returns hhmmss in seconds */
-	static int HHMMSS_to_sec(String hhmmss) {
+	static int HHMMSSToSec(String hhmmss) {
 
 		int sec = 0;
 		
@@ -18,39 +18,39 @@ public class Duration {
 	}
 	
 	/* Input: hhmmss- hhmmss in seconds || Output: returns hhmmss in string */
-	static String sec_to_HHMMSS(int sec) {
+	static String secToHHMMSS(int sec) {
 		
 		String hhmmss;
-		StringBuffer sbuff = new StringBuffer(8);
+		StringBuffer buffer = new StringBuffer(8);
 		
 		int hours = sec / 3600;		
 		if (hours > 9) {
-			sbuff.append(hours);
+			buffer.append(hours);
 		} else {
-			sbuff.append(0);
-			sbuff.append(hours);
+			buffer.append(0);
+			buffer.append(hours);
 		}
 		sec = sec - hours * 3600;
-		sbuff.append(':');
+		buffer.append(':');
 		
 		int mins = sec / 60;		
 		if (mins > 9) {
-			sbuff.append(mins);
+			buffer.append(mins);
 		} else {
-			sbuff.append(0);
-			sbuff.append(mins);
+			buffer.append(0);
+			buffer.append(mins);
 		}
 		sec = sec - mins * 60;
-		sbuff.append(':');
+		buffer.append(':');
 		
 		if (sec > 9) {
-			sbuff.append(sec);
+			buffer.append(sec);
 		} else {
-			sbuff.append(0);
-			sbuff.append(sec);
+			buffer.append(0);
+			buffer.append(sec);
 		}
 
-		hhmmss = sbuff.toString();
+		hhmmss = buffer.toString();
 		
 		return hhmmss;
 	}

@@ -2,7 +2,7 @@
 public class ByteUtils {
 	
 	/* Input: bArr- an integer as byte array, in little-endian format || Output: unmodified integer as 'int' value  */
-	static int toInt_fromLittleEndian(byte[] bArr) {
+	static int toIntFromLittleEndian(byte[] bArr) {
 		int val = 0;
 		int tmp = 0;
 		
@@ -20,7 +20,7 @@ public class ByteUtils {
 	}
 	
 	/* Input: bArr- an integer as byte array, in little-endian format || Output: unmodified integer as 'long' value  */
-	static long toLong_fromLittleEndian(byte[] bArr) {
+	static long toLongFromLittleEndian(byte[] bArr) {
 		long val = 0;
 		long tmp = 0;
 		
